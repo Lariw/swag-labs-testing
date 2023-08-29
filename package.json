@@ -1,0 +1,15 @@
+{
+  "name": "swag-labs-testing",
+  "version": "1.0.0",
+  "description": "Testing the functionalities/design of the application swag labs",
+  "scripts": {},
+  "keywords": [
+    "automatic-testing",
+    "automation"
+  ],
+  "author": "Lariw",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.0.0"
+  }
+}
