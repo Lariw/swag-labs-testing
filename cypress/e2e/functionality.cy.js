@@ -7,6 +7,7 @@ describe("Functional Application Tests", () => {
   let lockedUser = null;
   let performanceGlitchUser = null;
   let problemUser = null;
+  let userOrderData = null;
 
   before(() => {
     cy.fixture("failedLoginData.json").then((data) => {
@@ -23,6 +24,9 @@ describe("Functional Application Tests", () => {
     });
     cy.fixture("problem_user.json").then((data) => {
       problemUser = data;
+    });
+    cy.fixture("userOrderData.json").then((data) => {
+      userOrderData = data;
     });
   });
 
@@ -41,7 +45,7 @@ describe("Functional Application Tests", () => {
     cy.SaveYourSession();
   });
 
-  it("Test footera", () => {
+  it("Functional footer testing", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
@@ -141,6 +145,60 @@ describe("Functional Application Tests", () => {
       sortedName.forEach((el) => {
         cy.log(el);
       });
+    });
+  });
+
+  it("Adding products to the cart, validation, ordering.", () => {
+    cy.ReadYourSession();
+
+    cy.visit("https://www.saucedemo.com/inventory.html", {
+      failOnStatusCode: false,
+    });
+
+    cy.get(".btn_primary").each((button) => {
+      button.click();
+    });
+
+    cy.wait(2000);
+
+    cy.get(".shopping_cart_badge").should("contain", 6);
+
+    cy.get(".btn_secondary").each((removeButton) => {
+      removeButton.click();
+    });
+
+    cy.get(".shopping_cart_badge").should("not.exist");
+
+    let orderedElementPrice;
+    let randomNum = Math.floor(Math.random() * 5) + 1;
+    cy.then(() => {
+      return cy
+        .get(".inventory_item_price")
+        .eq(randomNum)
+        .invoke("text")
+        .then((price) => {
+          orderedElementPrice = price;
+        });
+    }).then(() => {
+      cy.get(".btn_primary").eq(randomNum).click();
+
+      cy.log(orderedElementPrice);
+
+      cy.get(".shopping_cart_link").scrollIntoView().click();
+
+      cy.get(".inventory_item_price").should("contain", orderedElementPrice);
+
+      cy.get("#checkout").click();
+
+      cy.get('[data-test="firstName"]').type(userOrderData.firstName);
+      cy.get('[data-test="lastName"]').type(userOrderData.lastName);
+      cy.get('[data-test="postalCode"]').type(userOrderData.postalCode);
+
+      cy.get('[data-test="continue"]').click();
+
+      cy.wait(3000);
+      cy.get('[data-test="finish"]').click();
+      cy.get('[data-test="back-to-products"]').click();
     });
   });
 
