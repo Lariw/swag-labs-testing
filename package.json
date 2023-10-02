@@ -1,6 +1,6 @@
 {
   "name": "swag-labs-testing",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "Testing the functionalities/design of the application swag labs",
   "scripts": {},
   "keywords": [
@@ -10,6 +10,6 @@
   "author": "Lariw",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.0.0"
+    "cypress": "^13.3.0"
   }
 }
