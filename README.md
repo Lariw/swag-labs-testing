@@ -1,6 +1,41 @@
 # Swang Lab Testing | Tests case version - 2.0.1 | Cypress version - 13.3.0
 
-## The tests written for the website: https://www.saucedemo.com/
+The tests written for the website: https://www.saucedemo.com/
+
+## Installation
+
+To run the tests, you need to have Node.js installed, preferably in the latest version.
+Navigate to the tests directory and open a console. Type npm install to install the necessary packages
+
+```
+npm install
+```
+
+or 
+
+```
+npx i
+```
+
+Next, type npx cypress open in the console to launch tests with the interface.
+
+```
+npx cypress open
+```
+
+## Headless mode
+
+To run Cypress tests in headless mode, you need to enter the appropriate commands related to a specific test in the console.
+
+
+| Command | description |
+| ------ | ------ |
+| npm run cypress:functionality | Functional Application Tests |
+| npm run cypress:logging | Login Validation Tests |
+| npm run cypress:runAllTests | Run all tests |
+
+
+
 
 ### Test Cases
 
