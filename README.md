@@ -14,7 +14,7 @@ npm install
 or 
 
 ```
-npx i
+npm i
 ```
 
 Next, type npx cypress open in the console to launch tests with the interface.
