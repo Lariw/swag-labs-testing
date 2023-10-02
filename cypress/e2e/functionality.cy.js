@@ -36,7 +36,7 @@ describe("Functional Application Tests", () => {
     });
   });
 
-  it("Login to standard_user, save session", () => {
+  it("As a app user you should be able to login (standard_user) and save session.", () => {
     cy.visit(projectDetails.baseURL);
     cy.url().should("equal", projectDetails.baseURL);
 
@@ -45,7 +45,7 @@ describe("Functional Application Tests", () => {
     cy.SaveYourSession();
   });
 
-  it("Functional footer testing", () => {
+  it("As a app user you should be able to view all links in footer (status code 200). ", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
@@ -54,7 +54,7 @@ describe("Functional Application Tests", () => {
     cy.TestingFooter();
   });
 
-  it("Validation tests of descriptions, titles and prices", () => {
+  it("As a app user, you should be able see all the descriptions of products, titles, prices, and their equivalents in the subpages of a particular product.", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
@@ -90,7 +90,7 @@ describe("Functional Application Tests", () => {
     });
   });
 
-  it("Product sorting tests", () => {
+  it("As a app user, you should be able to sort by any category, all products.", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
@@ -148,7 +148,7 @@ describe("Functional Application Tests", () => {
     });
   });
 
-  it("Adding products to the cart, validation, ordering.", () => {
+  it("As a app user, you should be able to add products to the cart and place orders. The data should be accurate.", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
@@ -202,7 +202,7 @@ describe("Functional Application Tests", () => {
     });
   });
 
-  it("Logout and clear session", () => {
+  it("As a app user, you should be able to logout, and clear sesion.", () => {
     cy.ReadYourSession();
 
     cy.visit("https://www.saucedemo.com/inventory.html", {
