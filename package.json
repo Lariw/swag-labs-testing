@@ -2,7 +2,11 @@
   "name": "swag-labs-testing",
   "version": "2.0.1",
   "description": "Testing the functionalities/design of the application swag labs",
-  "scripts": {},
+  "scripts": {
+    "cypress:functionality":"cypress run --spec cypress/e2e/functionality.cy.js",
+    "cypress:logging":"cypress run --spec cypress/e2e/logging.cy.js",
+    "cypress:runAllTests":"cypress run --spec cypress/e2e/runAllTests.cy.js"
+  },
   "keywords": [
     "automatic-testing",
     "automation"
