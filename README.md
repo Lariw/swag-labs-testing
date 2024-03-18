@@ -7,6 +7,11 @@ The tests written for the website: https://www.saucedemo.com/
 :arrow_right: :hammer:   [View more on Github Actions](https://github.com/Lariw/swag-labs-testing/actions)
 
 
+
+
+> ![swang-labs](https://github.com/Lariw/swag-labs-testing/assets/98982966/fcf77b04-de1e-4ac1-b733-b93f3cf6292c)
+
+
 ## Installation
 
 To run the tests, you need to have Node.js installed, preferably in the latest version.
