@@ -83,5 +83,5 @@ Cypress.Commands.add("TestingFooter", () => {
     });
   });
 
-  cy.get(".footer_copy").should("contain", "2023");
+  cy.get(".footer_copy").should("contain", "2024");
 });
